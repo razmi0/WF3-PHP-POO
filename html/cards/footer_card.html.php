@@ -1,3 +1,3 @@
 <div class="card-footer">
-    <?= getHeroStats($Batman, $Superman); ?>
+    <?= getHeroStats($Batman, $Superman) ?>
 </div>

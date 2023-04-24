@@ -87,7 +87,7 @@ class Character
     {
         return $this->name;
     }
-    
+
 
     /**
      * Get the value of the health of the character
@@ -159,6 +159,7 @@ class Character
     public function sayHello(Character $HeroDefending): string
     {
         return "Hi {$HeroDefending->name} ! I'm {$this->name} <br>";
+
     }
 
 
@@ -172,7 +173,8 @@ class Character
     {
         $attack = $this->experience * 10 * $numberOfAttack;
         $HeroDefending->setHealth($HeroDefending->getHealth() - $attack);
-        return "I'm {$this->name}, attacking {$HeroDefending->name}";
+        return "
+        {$this->name} : 'Oh {$HeroDefending->name}. Who needs superpowers?'<br> 🔥 -{$attack} ";
     }
 
 
@@ -183,7 +185,7 @@ class Character
     public function doSuperAttack(Character $HeroDefending): string
     {
         $this->doAttack($HeroDefending, 2);
-        return "I'm {$this->name}, super attacking {$HeroDefending->name}";
+        return "{$this->name} : ' Is that all you've got, {$HeroDefending->name}? '";
     }
 
 
@@ -196,7 +198,7 @@ class Character
         $HeroDefending->getHealth() < 50 ?
             $HeroDefending->setHealth(0) :
             $HeroDefending->setHealth($HeroDefending->getHealth());
-        return "I'm {$this->name} and sneaky attacking {$HeroDefending->name} ";
+        return "{$this->name} : ' Every man for himself {$HeroDefending->name}, sneaky attack !' ";
     }
 
 
@@ -223,7 +225,5 @@ class Character
             'experience' => $this->experience
         ];
     }
-
-
 
 }

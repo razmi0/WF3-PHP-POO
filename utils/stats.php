@@ -5,7 +5,7 @@
  * @param Character $Hero2
  * @return string
  */
-function getHeroStats(Character $Hero1, Character $Hero2): string
+function displayHeroStats(Character $Hero1, Character $Hero2): string
 {
     // An array of the two heroes stats
     $hero1Stats = $Hero1->getStats();
@@ -18,8 +18,8 @@ function getHeroStats(Character $Hero1, Character $Hero2): string
     $hero2Health = $hero2Stats['health'];
 
     return "
-    <ul class='list-group list-group-flush'>
-        <li class='list-group-item'>{$hero1FirstLetter} | {$hero1Health}</li>
-        <li class='list-group-item'>{$hero2FirstLetter} | {$hero2Health}</li>
-    </ul>";
+    <div class='d-flex align-items-center justify-content-evenly flex-row '>
+        <div>{$hero1FirstLetter} | {$hero1Health}</div>
+        <div>{$hero2FirstLetter} | {$hero2Health}</div>
+    </div>";
 }

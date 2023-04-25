@@ -42,6 +42,25 @@ La portée statique <i>static</i> et son opérateur <i>::</i> permettent s'acced
 </p>
 
 ### Precision sur l'héritage
+<p>
+Les classes enfants qui <i>extend</i> peuvent acceder à la propriété/var <i>protected</i> de la classe parente. Les parents ne peuvent pas accéder aux classes enfants.
+</p>
 
+```php
+class MyChild extends  MyParent {
+	public  function  __construct(){
+		// protected (last name) is accessible in the child
+		// class but not outside the class protected 
+		// lastname inherited from MyParent
+		echo  $this->lastname; // print Dupont
+		}
+	}
+```
+MyChild extends from MyParent : 
+```php
+class MyParent {
+	protected string $lastname =  "Dupont";
+	}
+```
 
 

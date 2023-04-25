@@ -124,13 +124,31 @@ abstract class MyAbstractClass {
 
 ### Espaces de noms
 
+
+Vanilla : sql_autoload_register("functionThatAutoload") <br>
+Avec composer : juste require_once "vendor/autoload.php" dans index.php <br>
+
+
+
+
+
+
 Composer est un gestionnaire de paquet. Il permet de gérer les dépendances entre les projets et  les espaces de noms.
 Dossier vendor contient les dépendances. Il est généré par composer. On peut se représenter le namespace comme un dossier virtuel contenant les classes.
 Modifié la base du namespace => composer update dans bash.
 ```bash
 composer update
 ```
+Recommendation autoload PSR-4 dans composer.json:
 
+```json
+"autoload": {
+  "psr-4": {
+    "App\\": "src/"
+  }
+}
+```
+App\\ correspond au répertoire virtuel de src/. On peut donc utiliser les classes de src/ dans index.php sans avoir à les inclure. App\\ n'est pas immuable, ne pas oublier de faire un composer update après modification. 
 
 
 

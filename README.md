@@ -41,7 +41,7 @@ Les classes enfants qui <i>extend</i> peuvent acceder à la propriété/var <i>p
 La portée statique <i>static</i> et son opérateur <i>::</i> permettent s'acceder à l'attribut statique sans passer par une instance d'objet. Donc pas de $this dans une methode statique. La classe se comporte comme une librairie si elle contient nombre de methode statique. Propriété, methode, constante peuvent être statique.
 </p>
 
-### Precision sur l'héritage
+## Precision sur l'héritage
 <p>
 Les classes enfants qui <i>extend</i> peuvent acceder à la propriété/var <i>protected</i> de la classe parente. Les parents ne peuvent pas accéder aux classes enfants.
 </p>
@@ -56,11 +56,50 @@ class MyChild extends  MyParent {
 		}
 	}
 ```
-MyChild extends from MyParent : 
+MyChild extends from MyParent :
+
 ```php
 class MyParent {
 	protected string $lastname =  "Dupont";
 	}
 ```
+### Interface
+
+Une interface est un peu comme en ts sans être explicitement du "typage". Elle contient des déclarations de methods que la classe qui l'implémente doit absolument déclaré.
+
+```php
+interface Vehicle {
+  public function start();
+  public function stop();
+}
+```
+La classe Car <i>implements</i> Vehicle :
+
+```php
+class Car implements Vehicle {
+  public function start() {
+    // Implementation of start method for Car
+  }
+
+  public function stop() {
+    // Implementation of stop method for Car
+  }
+}
+```
+### Final keyword
+
+Une classe / prop / method <i>final</i> ne peut pas être héritée. La méthode <i>final</i> ne peut pas être redéfinie.
+
+### Abstract keyword
+
+Une classe / prop / method <i>abstract</i> ne peut pas être instanciée. Une classe <i>abstract</i> peut contenir des méthodes <i>abstract</i> et des méthodes normales. Une classe <i>abstract</i> force l'héritage. Une méthode <i>abstract</i> doit être définie dans la classe enfant, pas dans la classe abstract (comme declaration en TS).
+
+
+```php	
+abstract class MyAbstractClass {
+    abstract public function myAbstractMethod();
+}
+```
+
 
 

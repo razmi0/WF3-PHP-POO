@@ -122,6 +122,16 @@ abstract class MyAbstractClass {
 }
 ```
 
+### Espaces de noms
+
+Composer est un gestionnaire de paquet. Il permet de gérer les dépendances entre les projets et  les espaces de noms.
+Dossier vendor contient les dépendances. Il est généré par composer. On peut se représenter le namespace comme un dossier virtuel contenant les classes.
+Modifié la base du namespace => composer update dans bash.
+```bash
+composer update
+```
+
+
 
 
 

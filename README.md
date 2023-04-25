@@ -41,6 +41,27 @@ Les classes enfants qui <i>extend</i> peuvent acceder à la propriété/var <i>p
 La portée statique <i>static</i> et son opérateur <i>::</i> permettent s'acceder à l'attribut statique sans passer par une instance d'objet. Donc pas de $this dans une methode statique. La classe se comporte comme une librairie si elle contient nombre de methode statique. Propriété, methode, constante peuvent être statique.
 </p>
 
+### Chainage de méthodes
+
+functions doivent return $this pour pouvoir être chainées.
+
+### Methodes magiques
+
+__contruct()<br> __destruct()<br>
+__get() Déclenché à l'écriture via un setter par exemple <br> __set() Déclenché via lecture via un getter par exemple <br>
+__isset() Déclenché via isset() ou empty() <br> __unset() Déclenché via unset() <br>
+__sleep() Déclenché via serialize() <br> __wakeup() Déclenché via unserialize() <br>
+Et bien d'autres RFD 
+
+### Documentation
+
+@access public|private|protected<br>
+@param type $varname description<br>
+@return type description<br>
+@package package_name<br>
+@see type::method() called inside<br>
+@since version<br>
+
 ## Precision sur l'héritage
 <p>
 Les classes enfants qui <i>extend</i> peuvent acceder à la propriété/var <i>protected</i> de la classe parente. Les parents ne peuvent pas accéder aux classes enfants.
@@ -100,6 +121,8 @@ abstract class MyAbstractClass {
     abstract public function myAbstractMethod();
 }
 ```
+
+
 
 
 

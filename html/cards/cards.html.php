@@ -4,33 +4,33 @@
         <h5 class="card-title text-center">Batman salue Superman 👋</h5>
         <div class="card-body">
             <p class="card-text text-center fst-italic ">
-                <?= $Batman->sayHello($Superman) ?>
+                <?php $Batman->sayHello($Superman) ?>
             </p>
         </div>
         <div class="card-footer">
-            <?= displayHeroStats($Batman, $Superman) ?>
+            <?php displayHeroStats($Batman, $Superman) ?>
         </div>
     </div>
     <div class="card col-4 py-3 px-3 ">
         <h5 class="card-title text-center">Superman salue Batman 👋</h5>
         <div class="card-body">
             <p class="card-text text-center fst-italic">
-                <?= $Superman->sayHello($Batman) ?>
+                <?php $Superman->sayHello($Batman) ?>
             </p>
         </div>
         <div class="card-footer">
-            <?= displayHeroStats($Batman, $Superman) ?>
+            <?php displayHeroStats($Batman, $Superman) ?>
         </div>
     </div>
     <div class="card col-4 py-3 px-3">
         <h5 class="card-title text-center">Batman attaque Superman 💢</h5>
         <div class="card-body">
             <p class="card-text text-center fst-italic">
-                <?= $Batman->doAttack($Superman) ?>
+                <?php $Batman->doAttack($Superman) ?>
             </p>
         </div>
         <div class="card-footer">
-            <?= displayHeroStats($Batman, $Superman) ?>
+            <?php displayHeroStats($Batman, $Superman) ?>
         </div>
     </div>
 </div>
@@ -44,36 +44,36 @@
         </h5>
         <div class="card-body">
             <p class="card-text text-center fst-italic">
-                <?= $Superman->doAttack($Batman) ?>
-            </p>
-            <p class="card-text text-center fst-italic">
-                <?= $Superman->doSuperAttack($Batman) ?>
+                <?php $Superman
+                    ->doAttack($Batman)
+                    ->doSuperAttack($Batman)
+                ?>
             </p>
         </div>
         <div class="card-footer">
-            <?= displayHeroStats($Batman, $Superman) ?>
+            <?php displayHeroStats($Batman, $Superman) ?>
         </div>
     </div>
     <div class="card col-4 py-3 px-3">
         <h5 class="card-title text-center">Batman , furax , fait une super attaque 💢</h5>
         <div class="card-body">
             <p class="card-text text-center fst-italic">
-                <?= $Batman->doSuperAttack($Superman) ?>
+                <?php $Batman->doSuperAttack($Superman) ?>
             </p>
         </div>
         <div class="card-footer">
-            <?= displayHeroStats($Batman, $Superman) ?>
+            <?php displayHeroStats($Batman, $Superman) ?>
         </div>
     </div>
     <div class="card col-4 py-3 px-3">
         <h5 class="card-title text-center">Superman se soigne 😔</h5>
         <div class="card-body">
             <p class="card-text text-center fst-italic">
-                <?= $Superman->doHeal() ?>
+                <?php $Superman->doHeal() ?>
             </p>
         </div>
         <div class="card-footer">
-            <?= displayHeroStats($Batman, $Superman) ?>
+            <?php displayHeroStats($Batman, $Superman) ?>
         </div>
     </div>
 </div>
@@ -87,39 +87,33 @@
         </h5>
         <div class="card-body">
             <p class="card-text text-center fst-italic">
-                <?= $Superman->doAttack($Batman) ?>
-            </p>
-            <p class="card-text text-center fst-italic">
-                <?= $Superman->doAttack($Batman) ?>
+                <?php $Superman->doAttack($Batman)->doAttack($Batman) ?>
             </p>
         </div>
         <div class="card-footer">
-            <?= displayHeroStats($Batman, $Superman) ?>
+            <?php displayHeroStats($Batman, $Superman) ?>
         </div>
     </div>
     <div class="card col-4 py-3 px-3">
         <h5 class="card-title text-center">Batman répond d'une attaque simple suivi d'une attaque secrète 💢🔋</h5>
         <div class="card-body">
             <p class="card-text text-center fst-italic">
-                <?= $Batman->doAttack($Superman) ?>
-            </p>
-            <p class="card-text text-center fst-italic">
-                <?= $Batman->doSneakyAttack($Superman) ?>
+                <?php $Batman->doAttack($Superman)->doSneakyAttack($Superman) ?>
             </p>
         </div>
         <div class="card-footer">
-            <?= displayHeroStats($Batman, $Superman) ?>
+            <?php displayHeroStats($Batman, $Superman) ?>
         </div>
     </div>
     <div class="card col-4 py-3 px-3">
         <h5 class="card-title text-center">Superman est au tapie et Batman gagne un point d'expérience 👍</h5>
         <div class="card-body">
             <p class="card-text text-center fst-italic">
-                <?= $Batman->setExperienceUp() ?>
+                <?php $Batman->experienceUp() ?>
             </p>
         </div>
         <div class="card-footer">
-            <?= displayHeroStats($Batman, $Superman) ?>
+            <?php displayHeroStats($Batman, $Superman) ?>
         </div>
     </div>
 </div>

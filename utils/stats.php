@@ -3,9 +3,9 @@
  * Summary of getHeroStats
  * @param Character $Hero1
  * @param Character $Hero2
- * @return string
+ * @return void
  */
-function displayHeroStats(Character $Hero1, Character $Hero2): string
+function displayHeroStats(Character $Hero1, Character $Hero2): void
 {
     // An array of the two heroes stats
     $hero1Stats = $Hero1->getStats();
@@ -17,9 +17,10 @@ function displayHeroStats(Character $Hero1, Character $Hero2): string
     $hero2FirstLetter = substr($hero2Stats['name'], 0, 1);
     $hero2Health = $hero2Stats['health'];
 
-    return "
+    echo "
     <div class='d-flex align-items-center justify-content-evenly flex-row '>
         <div>{$hero1FirstLetter} | {$hero1Health}</div>
         <div>{$hero2FirstLetter} | {$hero2Health}</div>
     </div>";
+
 }

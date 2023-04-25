@@ -16,7 +16,7 @@ class Character
      * @param string $name
      * @param integer $experience
      */
-    public function __construct($name, $experience)
+    public function __construct(string $name, int $experience = self::NOVICE)
     {
         $this->name = $name;
         $this->experience = $experience;
@@ -72,7 +72,7 @@ class Character
      * @var int
      */
 
-    private int $experience = 0;
+    private int $experience = self::NOVICE;
 
 
     // |------------END PROPERTIES------------|
@@ -125,40 +125,46 @@ class Character
     }
 
 
-    /**
-     * Set the value of character's experience if he levels up
-     * @return string
-     */
-    public function setExperienceUp(): string
-    {
-        switch ($this->experience) {
-            case self::NOVICE:
-                $this->experience = self::MEDIUM;
-                break;
-
-            case self::MEDIUM:
-                $this->experience = self::EXPERT;
-                break;
-
-            default:
-                break;
-        }
-        return "{$this->name} is now level {$this->getExperience()}";
-    }
-
-
     // |------------END SETTERS------------|
     // |------------METHODS------------|
+
+    /**
+     * Set the value of character's experience if he levels up
+     * @param Character $HeroDefending
+     * @return self
+     */
+    public function experienceUp(Character $HeroDefending): self
+    {
+        if ($HeroDefending->getHealth() <= 0) {
+            switch ($this->experience) {
+                case self::NOVICE:
+                    $this->experience = self::MEDIUM;
+                    break;
+
+                case self::MEDIUM:
+                    $this->experience = self::EXPERT;
+                    break;
+
+                default:
+                    break;
+            }
+            echo "{$this->name} is now level {$this->getExperience()}";
+        }
+        return $this;
+
+    }
+
 
 
     /**
      * Before a good fight, a character must say hello to the opponent
      * @param Character $HeroDefending
-     * @return string
+     * @return self
      */
-    public function sayHello(Character $HeroDefending): string
+    public function sayHello(Character $HeroDefending): self
     {
-        return "Hi {$HeroDefending->name} ! I'm {$this->name} <br>";
+        echo "Hi {$HeroDefending->name} ! I'm {$this->name} <br>";
+        return $this;
 
     }
 
@@ -167,49 +173,54 @@ class Character
      * When a character attacks another character, the defender loses health
      * @param Character $HeroDefending
      * @param int $numberOfAttack
-     * @return string
+     * @return self
      */
-    public function doAttack(Character $HeroDefending, int $numberOfAttack = 1): string
+    public function doAttack(Character $HeroDefending, int $numberOfAttack = 1): self
     {
         $attack = $this->experience * 10 * $numberOfAttack;
         $HeroDefending->setHealth($HeroDefending->getHealth() - $attack);
-        return "
-        {$this->name} : 'Oh {$HeroDefending->name}. Who needs superpowers?'<br> 🔥 -{$attack} ";
+        echo "
+        {$this->name} : 'Oh {$HeroDefending->name}. Who needs superpowers?'<br> 🔥 -{$attack} <br>";
+        return $this;
     }
 
 
     /**
      * When a character super attacks another character, he loses twice the amount of health
-     * @return string
+     * @return self
      */
-    public function doSuperAttack(Character $HeroDefending): string
+    public function doSuperAttack(Character $HeroDefending): self
     {
         $this->doAttack($HeroDefending, 2);
-        return "{$this->name} : ' Is that all you've got, {$HeroDefending->name}? '";
+        echo "{$this->name} : ' Is that all you've got, {$HeroDefending->name}? '";
+        return $this;
     }
 
 
     /**
      * When a character sneaky attacks another character, he loses all his health if he has less than 50
-     * @return string
+     * @return self
      */
-    public function doSneakyAttack(Character $HeroDefending): string
+    public function doSneakyAttack(Character $HeroDefending): self
     {
         $HeroDefending->getHealth() < 50 ?
             $HeroDefending->setHealth(0) :
             $HeroDefending->setHealth($HeroDefending->getHealth());
-        return "{$this->name} : ' Every man for himself {$HeroDefending->name}, sneaky attack !' ";
+        echo "{$this->name} : ' Every man for himself {$HeroDefending->name}, sneaky attack !' ";
+        return $this;
     }
 
 
     /**
      * When a character heals himself, he gains 10 health points and cry
-     * @return string
+     * @return self
      */
-    public function doHeal(): string
+    public function doHeal(): self
     {
         $this->setHealth($this->getHealth() + 10);
-        return "I'm {$this->name} my health is {$this->getHealth()}";
+        echo "{$this->name} : Phew, that was a close one<br>
+        {$this->name} : 'I'm gonna need a new pair of pants <br> 💊 +10'";
+        return $this;
     }
 
 

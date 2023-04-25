@@ -9,7 +9,7 @@ body {
 }
 
 div.card.col-4 {
-    background-image: url("/php_poo/TP/assets/pictures/bagarre.webp");
+    /* background-image: url("/php_poo/TP/assets/pictures/bagarre.webp"); */
     object-fit: cover;
     background-size: cover;
     background-repeat : no-repeat;

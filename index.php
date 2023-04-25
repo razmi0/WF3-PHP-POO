@@ -6,7 +6,7 @@ require_once "classes/Character.php";
 require_once "utils/stats.php";
 
 $Batman = new Character("Batman", Character::MEDIUM);
-$Superman = new Character("Superman", Character::NOVICE);
+$Superman = new Character("Superman");
 
 include_once "html/head.html.php";
 include_once "html/body.html.php";
